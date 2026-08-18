@@ -11,5 +11,4 @@ public class Principal {
 		System.out.println(emp2.toString());
 		System.out.println(emp3.toString());
 	}
-
 }

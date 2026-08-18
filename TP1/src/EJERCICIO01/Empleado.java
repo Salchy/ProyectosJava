@@ -1,4 +1,5 @@
 package EJERCICIO01;
+import java.time.LocalDate;
 
 public class Empleado extends Persona {
 	private static int indice = 1000;
@@ -10,7 +11,18 @@ public class Empleado extends Persona {
 		super();
 		indice++;
 		
-		legajo = indice;
+		this.legajo = indice;
+	}
+	
+	public Empleado(String dni, String nombre, String apellido,
+			LocalDate fechaNacimiento, String genero, String direccion,
+			String telefono, String email, String puesto) {
+		super(dni, nombre, apellido, fechaNacimiento, genero, direccion, telefono, email);
+		
+		indice++;
+		
+		this.legajo = indice;
+		this.puesto = puesto;
 	}
 	
 	@Override
