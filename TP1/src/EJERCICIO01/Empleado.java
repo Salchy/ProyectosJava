@@ -1,8 +1,17 @@
 package EJERCICIO01;
 
 public class Empleado extends Persona {
-	private int legajo;
+	private static int indice = 1000;
+	
+	final private int legajo;
 	private String puesto;
+	
+	public Empleado() {
+		super();
+		indice++;
+		
+		legajo = indice;
+	}
 	
 	@Override
 	public String toString() {
