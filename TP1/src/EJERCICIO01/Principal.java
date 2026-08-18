@@ -10,5 +10,7 @@ public class Principal {
 		System.out.println(emp1.toString());
 		System.out.println(emp2.toString());
 		System.out.println(emp3.toString());
+		
+		System.out.println("Proximo legajo a ser añadido: " + Empleado.devuelveProximoLegajo());
 	}
 }
