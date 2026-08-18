@@ -22,9 +22,6 @@ public class Empleado extends Persona {
 	public int getLegajo() {
 		return legajo;
 	}
-	public void setLegajo(int legajo) {
-		this.legajo = legajo;
-	}
 	
 	public String getPuesto() {
 		return puesto;
