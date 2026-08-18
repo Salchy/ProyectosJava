@@ -29,6 +29,7 @@ public class Empleado extends Persona {
 		return indice + 1;
 	}
 	
+	// TODO: Mejorar tostrings
 	@Override
 	public String toString() {
 		return "Empleado [legajo=" + legajo + ", puesto=" + puesto + "]";
