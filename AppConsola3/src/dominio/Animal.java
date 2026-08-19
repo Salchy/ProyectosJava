@@ -1,6 +1,6 @@
 package dominio;
 
-public class Animal {
+public abstract class Animal { // clase abstract, hace que no se pueda crear instancias de la clase Animal
 	private String nombre;
 
 	// Constructores:
@@ -26,6 +26,11 @@ public class Animal {
 	public String toString() {
 		return "Es un animal, su nombre es: " + nombre;
 	}
+	
+	// Metodo abstracto, hago que este metodo, sea de la clase animal
+	// Pero que tenga que ser desarollada en las clases que hereden
+	// de animal
+	public abstract String habilidades();
 	
 	// Método toString
 	

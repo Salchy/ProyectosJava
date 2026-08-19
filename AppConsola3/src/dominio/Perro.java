@@ -23,8 +23,12 @@ public class Perro extends Animal {
 		this.raza = raza;
 	}
 	
+	@Override
+	public String habilidades() {
+		return "Los perros pueden localizar y separar olores.";
+	}
+	
 	// Método ToString:
-
 	@Override
 	public String toString() {
 		return "Es un perro, su nombre es: " + getNombre() + " y su raza es: " + raza;

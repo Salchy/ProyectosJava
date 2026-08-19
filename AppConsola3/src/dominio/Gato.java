@@ -10,6 +10,11 @@ public class Gato extends Animal {
 		super(nombre);
 	}
 
+	@Override
+	public String habilidades() {
+		return "Los gatos tienen gran flexibilidad y elasticidad";
+	}
+	
 	// Metodo ToString:
 	
 	@Override
