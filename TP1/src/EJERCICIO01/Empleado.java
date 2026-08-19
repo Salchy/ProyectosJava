@@ -32,7 +32,7 @@ public class Empleado extends Persona {
 	// TODO: Mejorar tostrings
 	@Override
 	public String toString() {
-		return "Empleado [legajo=" + legajo + ", puesto=" + puesto + "]";
+		return this.getApellido() + ", " + this.getNombre() + " legajo = " + legajo + ", puesto = " + puesto;
 	}
 	
 	// Getters an setters
