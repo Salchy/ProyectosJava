@@ -1,5 +1,7 @@
 package dominio;
 import java.util.List;
+import java.util.Queue;
+import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.HashSet;
@@ -63,5 +65,19 @@ public class Principal {
 	        System.out.println(treeSet);
 	        
         // Queue
+	        // Para el ejemplo con Persona tengo que implementar Comparables
+		/*
+		 * Queue<Persona> queuePersonas = new PriorityQueue<>();
+		 * 
+		 * queuePersonas.add(lean); queuePersonas.add(angi);
+		 */
+	        
+	        Queue<String> cola = new PriorityQueue<>();
+	        
+	        cola.add("Leandro");
+	        cola.add("Angela");
+	        
+	        System.out.println("Queue (PriorityQueue):");
+	        System.out.println(cola);
 	}
 }
