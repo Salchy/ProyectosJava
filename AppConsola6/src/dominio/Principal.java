@@ -1,11 +1,14 @@
 package dominio;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.PriorityQueue;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.HashSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Principal {
@@ -79,5 +82,27 @@ public class Principal {
 	        
 	        System.out.println("Queue (PriorityQueue):");
 	        System.out.println(cola);
+	        
+      	// Map
+	        // Clave - Valor (Orden aleatorio)
+	        Map<String, Integer> hashMap = new HashMap<>();
+	         
+	        hashMap.put("Leandro", 26);
+	        hashMap.put("Angela", 37);
+	        
+	        System.out.println("hashMap:");
+	        System.out.println(hashMap);
+	        
+	        // TreeMap
+	        
+	        // Ordena por la clave
+	        Map<String, Double> treeMap = new TreeMap<>();
+	        
+	        treeMap.put("Pan", 150.0);
+	        treeMap.put("Leche", 200.0);
+	        treeMap.put("Arroz", 120.0);
+	        
+	        System.out.println("TreeMap:");
+	        System.out.println(treeMap);
 	}
 }
