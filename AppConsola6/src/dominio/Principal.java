@@ -1,18 +1,67 @@
 package dominio;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.HashSet;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Principal {
 
 	public static void main(String[] args) {
-		List<Persona> arrayListPersona = new ArrayList<>();
+		Persona lean = new Persona("Leandro", "Correa");
+		Persona angi = new Persona("Angela", "Leiva");
 		
-		arrayListPersona.add(new Persona("Leandro", "Correa"));
-		arrayListPersona.add(new Persona("Pepito", "Juarez"));
-		arrayListPersona.add(new Persona("Angela", "Leiva"));
+		// List
 		
-		System.out.println("ArrayList:");
-        System.out.println(arrayListPersona);
-	}
+			// Ejemplo de ArrayList (Se guarda en celdas continuas en memoria)
+			List<Persona> personasList1 = new ArrayList<>();
+			
+			personasList1.add(lean);
+			personasList1.add(angi);
+			personasList1.add(new Persona("Angela", "Leiva"));
+			
+			System.out.println("ArrayList:");
+	        System.out.println(personasList1);
+	        
+	        // Ejemplo de LinkedList (Son listas enlazadas)
+	        List<Persona> personasList2 = new LinkedList<>();
+	        personasList2.add(lean);
+	        personasList2.add(angi);
+	        
+	        System.out.println("LinkedList:");
+	        System.out.println(personasList2);
+	        
+        // Set
+	        
+	        // Ejemplo de HashSet (No repite elementos, orden aleatorio)
+	        Set<Persona> personasSet1 = new HashSet<>();
+	        
+	        personasSet1.add(lean);
+	        personasSet1.add(angi);
+	        
+	        System.out.println("HashSet:");
+	        System.out.println(personasSet1);
 
+	        // Ejemplo de TreeSet (No repite elementos, se ordena solo)
+	        // Para el ejemplo de persona, creo que tengo que usar interfaces en persona
+			/*
+			 * Set<Persona> personasSet2 = new TreeSet<>();
+			 * 
+			 * personasSet2.add(lean); personasSet2.add(angi);
+			 * 
+			 * System.out.println("TreeSet:"); System.out.println(personasSet2);
+			 */
+	        
+	        Set<Integer> treeSet = new TreeSet<>();
+	        
+	        treeSet.add(5);
+	        treeSet.add(3);
+	        treeSet.add(1);
+	        
+	        System.out.println("TreeSet:");
+	        System.out.println(treeSet);
+	        
+        // Queue
+	}
 }
