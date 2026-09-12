@@ -2,3 +2,17 @@
 .classpath
 .project
 .gitignore
+
+*.class
+bin/
+build/
+
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+*.tmp
+*.bak
+*.swp
+*~.nib
