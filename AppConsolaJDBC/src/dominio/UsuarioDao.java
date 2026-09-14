@@ -2,6 +2,7 @@ package dominio;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -60,17 +61,30 @@ public class UsuarioDao {
 	}
 	
 	public Usuario obtenerUsuario2(int id) {
-		Usuario user = new Usuario();
+		Usuario x = new Usuario();
 		
-		Connection cn = null;
+		Connection con = null;
 		
 		try {
+			con = DriverManager.getConnection(host + dbName, user, pass);
+			String query = "SELECT * FROM usuario WHERE id = ?";
+			PreparedStatement pst = con.prepareStatement(query);
+			
+			pst.setInt(1, id);
+			
+			ResultSet result = pst.executeQuery();
+			result.next();
+			
+			x.setId(result.getInt("id"));
+			x.setNombre(result.getString("nombre"));
+			x.setApellido(result.getString("apellido"));
+			
 			
 		} catch (Exception e) {
 			
 		}
 		
-		return user;
+		return x;
 	}
 	
 	public ArrayList<Usuario> obtenerTodosLosUsuarios() {

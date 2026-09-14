@@ -29,10 +29,17 @@ public class Principal {
 		
 		// ----------------------------------------- //
 		
-		ArrayList<Usuario> listUsuarios = usuarioDao.obtenerTodosLosUsuarios();
 		
-		for (Usuario usuario : listUsuarios) {
-			System.out.println(usuario.toString());
-		}
+		  ArrayList<Usuario> listUsuarios = usuarioDao.obtenerTodosLosUsuarios();
+		  
+		  for (Usuario usuario : listUsuarios) {
+			  System.out.println(usuario.toString());
+		  }
+		 
+		 
+		// ----------------------------------------- //
+		 Usuario user3 = usuarioDao.obtenerUsuario2(3);
+			
+		 System.out.println(user3.toString());
 	}
 }
