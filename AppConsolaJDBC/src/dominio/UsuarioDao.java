@@ -1,5 +1,6 @@
 package dominio;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -114,5 +115,22 @@ public class UsuarioDao {
 		}
 		
 		return lUsuarios;
+	}
+	
+	public void ejecutarSPGuardarUsuario(Usuario usuario) {
+		Connection con = null;
+		
+		try {
+			con = DriverManager.getConnection(host + dbName, user, pass);
+			CallableStatement cst = con.prepareCall("CALL crearUsuario(?, ?)");
+			
+			cst.setString(1, usuario.getNombre());
+			cst.setString(2, usuario.getApellido());
+			
+			cst.execute();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

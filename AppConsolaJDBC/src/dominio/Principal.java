@@ -38,8 +38,24 @@ public class Principal {
 		 
 		 
 		// ----------------------------------------- //
+		  
 		 Usuario user3 = usuarioDao.obtenerUsuario2(3);
 			
 		 System.out.println(user3.toString());
+		 
+		// ----------------------------------------- //
+		 
+		 Usuario user4 = new Usuario();
+		 
+		 user4.setNombre("Pepe");
+		 user4.setApellido("Aguilar");
+		 
+		 usuarioDao.ejecutarSPGuardarUsuario(user4);
+		 
+		 listUsuarios = usuarioDao.obtenerTodosLosUsuarios();
+		  
+		  for (Usuario usuario : listUsuarios) {
+			  System.out.println(usuario.toString());
+		  }
 	}
 }
