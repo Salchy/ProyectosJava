@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class UsuarioDao {
 	private String host = "jdbc:mysql://localhost:3306/";
@@ -56,5 +57,48 @@ public class UsuarioDao {
 		}
 		
 		return x;
+	}
+	
+	public Usuario obtenerUsuario2(int id) {
+		Usuario user = new Usuario();
+		
+		Connection cn = null;
+		
+		try {
+			
+		} catch (Exception e) {
+			
+		}
+		
+		return user;
+	}
+	
+	public ArrayList<Usuario> obtenerTodosLosUsuarios() {
+		ArrayList<Usuario> lUsuarios = new ArrayList<Usuario>();
+		
+		Connection con = null;
+		Usuario x = new Usuario();
+		
+		try {
+			con = DriverManager.getConnection(host + dbName, user, pass);
+			Statement st = con.createStatement();
+			
+			String query = "SELECT * FROM Usuario";
+			ResultSet result = st.executeQuery(query);
+			
+			while (result.next()) {
+				Usuario tmp = new Usuario();
+				tmp.setId(result.getInt("id"));
+				tmp.setNombre(result.getString("nombre"));
+				tmp.setApellido(result.getString("apellido"));
+				
+				lUsuarios.add(tmp);
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return lUsuarios;
 	}
 }
