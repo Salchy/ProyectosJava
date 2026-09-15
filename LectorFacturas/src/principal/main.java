@@ -14,14 +14,14 @@ import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Base64;
+import java.util.TreeSet;
 
 public class main {
 
 	public static void main(String[] args) {
 		System.out.println("Factura QR Reader iniciado");
-		ArrayList<Factura> facturas = new ArrayList<Factura>();
+		TreeSet<Factura> facturas = new TreeSet<Factura>();
 		
 		try {
 			
@@ -49,6 +49,7 @@ public class main {
 					
 					ObjectMapper mapper = new ObjectMapper();
 					Factura factura = mapper.readValue(json, Factura.class);
+					factura.setFile(archivo.getName());
 					
 					facturas.add(factura);
 					
