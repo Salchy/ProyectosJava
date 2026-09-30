@@ -22,16 +22,23 @@ public class main {
 	public static void main(String[] args) {
 		System.out.println("Factura QR Reader iniciado");
 		TreeSet<Factura> facturas = new TreeSet<Factura>();
-		
+		int cont = 0;
+		int totalArchivos = 0;
+		int errores = 0;
+
 		try {
 			
 			File carpeta = new File("facturas");
 			
 			File[] archivos = carpeta.listFiles();
 			
+			totalArchivos = archivos.length;
+						
 			for (File archivo : archivos) {
 				try {
-					System.out.println("Procesando: " + archivo.getName());
+					cont++;
+
+					System.out.println("Procesando: " + archivo.getName() + " " + cont + "/" + totalArchivos);
 					
 					BufferedImage img = ImageIO.read(archivo);
 					BufferedImageLuminanceSource fuente = new BufferedImageLuminanceSource(img);
@@ -46,6 +53,7 @@ public class main {
 					byte[] datos = Base64.getDecoder().decode(parametroP);
 					
 					String json = new String(datos, StandardCharsets.UTF_8);
+					System.out.println(json);
 					
 					ObjectMapper mapper = new ObjectMapper();
 					Factura factura = mapper.readValue(json, Factura.class);
@@ -54,7 +62,12 @@ public class main {
 					facturas.add(factura);
 					
 				} catch (NotFoundException e) {
-					e.printStackTrace();
+					cont--;
+					Factura fact = new Factura();
+					fact.setFile(archivo.getName());
+					fact.setNroCmp(errores);
+					errores++;
+					facturas.add(fact);
 			        System.out.println("No se encontró QR en: " + archivo.getName());
 				}
 				catch (Exception e) {
@@ -66,6 +79,7 @@ public class main {
 			e.printStackTrace();
 		}
 		
+		System.out.println("Facturas escaneadas: " + cont + "/" + totalArchivos);
 		for (Factura factura : facturas) {
 			System.out.println(factura.toString());
 		}

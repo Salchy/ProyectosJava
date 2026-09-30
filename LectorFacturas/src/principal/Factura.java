@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Factura implements Comparable<Factura> {
-	private int nroCmp;
-	private String fecha;
-	private double importe;
+	private int nroCmp = 0;
+	private String fecha = "";
+	private double importe = 0.0;
 	private String file;
 	
 	public Factura() {
@@ -40,7 +40,7 @@ public class Factura implements Comparable<Factura> {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(fecha, importe, nroCmp);
+		return Objects.hash(fecha, file, importe, nroCmp);
 	}
 
 	@Override
@@ -52,13 +52,13 @@ public class Factura implements Comparable<Factura> {
 		if (getClass() != obj.getClass())
 			return false;
 		Factura other = (Factura) obj;
-		return Objects.equals(fecha, other.fecha)
+		return Objects.equals(fecha, other.fecha) && Objects.equals(file, other.file)
 				&& Double.doubleToLongBits(importe) == Double.doubleToLongBits(other.importe) && nroCmp == other.nroCmp;
 	}
 
 	@Override
 	public String toString() {
-		return "Factura [fecha=" + fecha + ", nroCmp=" + nroCmp + ", importe=" + importe + "]";
+		return "Factura [fecha=" + fecha + ", nroCmp=" + nroCmp + ", importe=" + importe + ", file=" + file + "]";
 	}
 
 	@Override
