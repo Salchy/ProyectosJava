@@ -15,3 +15,6 @@ desktop.ini
 *.bak
 *.swp
 *~.nib
+*.png
+*.jpg
+*.zip
