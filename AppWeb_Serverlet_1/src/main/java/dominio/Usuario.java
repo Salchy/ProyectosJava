@@ -1,4 +1,4 @@
-package dominio;
+	package dominio;
 
 public class Usuario {
 	private int id;

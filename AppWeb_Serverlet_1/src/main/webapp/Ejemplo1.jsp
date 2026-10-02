@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="Ejemplo1.jsp" method="get">
+	<form action="ServerletUsuario" method="get">
 		Ingrese su nombre <input type="text" name="txtNombre"> <br>
 		Ingrese su apellido <input type="text" name="txtApellido"> <br>
 		
@@ -17,23 +17,16 @@
 	</form>
 	
 	<%
-		int result = 0;
-		if (request.getParameter("btnAceptar") != null) {
-			Usuario u = new Usuario();
-			u.setNombre(request.getParameter("txtNombre"));
-			u.setApellido(request.getParameter("txtApellido"));
-			
-			UsuarioDao db = new UsuarioDao();
-			result = db.agregarUsuario(u);
+		int rows = 0;
+		if (request.getAttribute("result") != null)
+			rows = Integer.parseInt(request.getAttribute("result").toString());
+		
+		if (rows > 0) {
+	%>
+			Usuario agregado con éxito.
+	<%			
 		}
 	%>
 	
-	<%
-		if (result == 1) {
-	%>
-		Usuario agregado
-	<%	
-		}
-	%>
 </body>
 </html>

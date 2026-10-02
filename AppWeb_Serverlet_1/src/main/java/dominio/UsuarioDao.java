@@ -25,12 +25,12 @@ public class UsuarioDao {
 		int filas = 0;
 		
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		
-		try {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			
 			cn = DriverManager.getConnection(host + dbName, user, pass);
 			Statement st = cn.createStatement();
 			filas = st.executeUpdate(query);
@@ -88,7 +88,7 @@ public class UsuarioDao {
 			
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 		}
 		
 		return x;
@@ -98,7 +98,6 @@ public class UsuarioDao {
 		ArrayList<Usuario> lUsuarios = new ArrayList<Usuario>();
 		
 		Connection con = null;
-		Usuario x = new Usuario();
 		
 		try {
 			con = DriverManager.getConnection(host + dbName, user, pass);
