@@ -100,6 +100,12 @@ public class UsuarioDao {
 		Connection con = null;
 		
 		try {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+
 			con = DriverManager.getConnection(host + dbName, user, pass);
 			Statement st = con.createStatement();
 			

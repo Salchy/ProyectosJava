@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import dominio.Usuario;
 import dominio.UsuarioDao;
@@ -52,8 +53,15 @@ public class ServerletUsuario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		if (request.getParameter("btnMostrarUsuarios") != null ) {
+			UsuarioDao udao = new UsuarioDao();
+			
+			ArrayList<Usuario> lista = udao.obtenerTodosLosUsuarios();
+			
+			request.setAttribute("listaU", lista);
+			RequestDispatcher rd = request.getRequestDispatcher("/Ejemplo2.jsp");
+			rd.forward(request, response);
+		}
 	}
 
 }
