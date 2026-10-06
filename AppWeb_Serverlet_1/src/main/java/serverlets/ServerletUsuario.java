@@ -33,6 +33,17 @@ public class ServerletUsuario extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int result = 0;
 		
+		if (request.getParameter("Param") != null) {
+			// Entra por haber hecho click sobre el hyperlink
+			UsuarioDao udao = new UsuarioDao();
+			
+			ArrayList<Usuario> lista = udao.obtenerTodosLosUsuarios();
+			
+			request.setAttribute("listaU", lista);
+			RequestDispatcher rd = request.getRequestDispatcher("/Ejemplo3.jsp");
+			rd.forward(request, response);
+		}
+		
 		if (request.getParameter("btnAceptar") != null) {
 			Usuario u = new Usuario();
 			u.setNombre(request.getParameter("txtNombre"));
